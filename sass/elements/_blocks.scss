@@ -1,0 +1,170 @@
+/**
+ * The Media Block
+ * -----------------------------------------------------------------------------
+ * Courtesy of Nicole Sullivan. Demo: http://goo.gl/sCZKxk
+ *
+ * Usage:
+ *
+ *      <div class="media-block">
+ *          <a href="http://some-url-com" class="media-block__image-container">
+ *              <img src="http://placehold.it/50x50" alt="">
+ *          </a>
+ *          <div class="media-block__body">
+ *              <h2>I'm a heading inside a media block</h2>
+ *              <p>And some text inside it as well</p>
+ *          </div>
+ *      </div>
+ *
+ * Emmet:
+ *      .media-block>a.media-block__image-container>img[http://placehold.it/50]^.media-block__body>h2{I'm a heading inside a media block}+p{And some text inside it as well}
+ */
+
+.media-block {
+    margin: $spacing--medium;
+}
+
+.media-block,
+.media-block__body {
+    @extend %clearfix;
+}
+
+.media-block__image-container {
+    float: left;
+    margin-right: $spacing--medium;
+
+    img {
+        display: block;
+    }
+}
+
+/**
+ * The Flag Block
+ * -----------------------------------------------------------------------------
+ * Courtesy of Harry Roberts. Demo: http://goo.gl/YR3ffA, http://goo.gl/4B3uFm
+ *
+ * Usage:
+ *
+ *      <div class="flag-block">
+ *          <div class="flag__image">
+ *              <img src="image.jpg" alt="">
+ *          </div>
+ *          <div class="flag__body">
+ *              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+ *          </div>
+ *      </div>
+ * Emmet:
+ *      .flag-block>.flag__image>img[http://placehold.it/150]^.flag__body>p{lorem8}
+ */
+
+.flag-block {
+    display: table;
+    width: 100%;
+}
+
+.flag__image {
+    display: table-cell;
+    vertical-align: middle;
+
+    .flag--top & {
+        vertical-align: top;
+    }
+
+    .flag--bottom & {
+        vertical-align: bottom;
+    }
+}
+
+.flag__image {
+    padding-right: $spacing--medium;
+
+    > img {
+        display: block;
+        max-width: none;
+
+        .flag--rev & {
+            padding-right: 0;
+            padding-left: $spacing--medium;
+        }
+    }
+}
+
+.flag__body {
+    width: 100%;
+}
+
+/**
+ * NOT A TEMPLATE BLOCKS
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+/*
+----------------------
+*/
+
+.tony {
+    width: 100%;
+}
+
+.helen {
+    @include breakpoint(large) {
+        width: ($medium - 40)/2;
+    }
+    @include breakpoint(medium) {
+        width: ($small - 40)/2;
+    }
+    @include breakpoint(small) {
+        width: ($xsmall - 40)/2;
+    }
+    @include breakpoint(xsmall) {
+        width: ($small - 40)/2;
+    }
+}
+
+.all-link {
+    margin-top: 12px;
+    display: inline-block;
+    color: $color--black;
+    text-decoration: none;
+}
+
+.lib {
+    position: relative;
+    height: 400px;
+    padding-top: 30px;
+    border-top: 1px dashed $color--link;
+    border-bottom: 1px dashed $color--link;
+    &-item {
+        height: 100px;
+        padding-left: 120px;
+        display: block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: $color--black;
+        text-align: left;
+        &:hover img{
+            @include transition-property(filter);
+            @include transition-duration($transition-time--base);
+            filter: none;
+        }
+    }
+    img {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        left: 0;
+        @include filter(grayscale, 100%);
+    }
+}
+
+.gal {
+    padding: 30px 0;
+    border-top: 1px dashed $color--link;
+    border-bottom: 1px dashed $color--link;
+    &-item {
+        margin-right: 30px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

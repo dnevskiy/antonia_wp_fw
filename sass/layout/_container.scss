@@ -1,0 +1,27 @@
+/*	On mobile and tablet, the container will have a margin of 20px 
+*		on both the left and right sides.
+*		On desktop (> 980px), the container will have a maximum width of 960px 
+*		and will be horizontally centered.
+*		If you don't want to have a maximum width but want to keep the 20px margin 
+*		on the left and right sides, add the is-fluid modifier:
+*/
+
+.contain {
+    background-color: #ccc;
+    max-width: $width-site;
+    margin: 0 auto;
+    @include breakpoint(medium) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.is-fluid {
+    background-color: #777;
+    margin: 0 20px;
+    max-width: none;
+}
+
+.is-fullwidth {
+    width: 100%;
+}
