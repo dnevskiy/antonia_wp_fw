@@ -1,0 +1,21 @@
+/**
+ * Footer
+ * -----------------------------------------------------------------------------
+ */
+
+.footer {
+  @include background(/*color,img*/);
+  padding: 40px 20px 80px;
+  a {
+    color: $color--link;
+    &:hover {
+      color: $color--link-hover;
+    }
+    &:not(.icon) {
+      border-bottom: 1px solid $color--border;
+      &:hover {
+        border-bottom-color: $color--link;
+      }
+    }
+  }
+}

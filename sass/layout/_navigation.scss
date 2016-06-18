@@ -1,0 +1,6 @@
+.main-nav {
+	@include inline-list;
+		a {
+		text-decoration: none;
+	}
+}
