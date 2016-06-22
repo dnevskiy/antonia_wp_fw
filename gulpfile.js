@@ -41,7 +41,7 @@ var path = {
 var config = {
     proxy: "localhost/wp-antonia/"
 };
-
+    
 gulp.task('webserver', function () {
     browserSync(config);
 });
