@@ -4,12 +4,8 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),    //?
-    rigger = require('gulp-rigger'),    // Плагин позволяет импортировать
-                                        // один файл в другой простой конструкцией
-                                        // = footer.html
-                                        // и эта строка при компиляции будет заменена
-                                        // на содержимое файла footer.html
+    sourcemaps = require('gulp-sourcemaps'),
+    rigger = require('gulp-rigger'),
     cssmin = require('gulp-clean-css'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
@@ -57,6 +53,7 @@ gulp.task('clean', function (cb) {
 gulp.task('html:build', function () {
   gulp.src(path.src.html)
 		//.pipe(php2html())
+        .pipe(rigger())
 		.pipe(gulp.dest(path.build.html))
 		.pipe(reload({stream: true}));
 });
