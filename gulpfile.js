@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),    //?
+    sourcemaps = require('gulp-sourcemaps'),
     rigger = require('gulp-rigger'),    // Плагин позволяет импортировать
                                         // один файл в другой простой конструкцией
                                         // = footer.html
@@ -57,6 +57,7 @@ gulp.task('clean', function (cb) {
 gulp.task('html:build', function () {
   gulp.src(path.src.html)
 		//.pipe(php2html())
+        .pipe(rigger())
 		.pipe(gulp.dest(path.build.html))
 		.pipe(reload({stream: true}));
 });
@@ -111,7 +112,7 @@ gulp.task('fonts:build', function() {
 });
 
 gulp.task('build', [
-    //'html:build',
+    'html:build',
     'js:build',
     'style:build',
     'fonts:build',
@@ -120,9 +121,9 @@ gulp.task('build', [
 
 
 gulp.task('watch', function(){
-    /*watch([path.watch.html], function(event, cb) {
+    watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
-    });*/
+    });
     watch([path.watch.style], function(event, cb) {
         gulp.start('style:build');
     });
