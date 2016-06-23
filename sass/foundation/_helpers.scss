@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Display ----------------------------------------------------
 
 .is-block {
@@ -91,3 +92,98 @@
 .is-unselectable {
   @include unselectable;
 }
+=======
+// Display ----------------------------------------------------
+
+.is-block {
+  display: block;
+}
+
+.is-inline {
+  display: inline;
+}
+
+.is-flex {
+  display: flex;
+}
+
+// Float ----------------------------------------------------
+
+.is-clearfix {
+  @include clearfix;
+}
+
+.is-pulled-left {
+  float: left;
+}
+
+.is-pulled-right {
+  float: right;
+}
+
+// Overlay ----------------------------------------------------
+
+.is-overlay {
+  @include overlay;
+}
+
+// Size ----------------------------------------------------
+
+.is-fullwidth {
+  width: 100%;
+}
+
+// Text ----------------------------------------------------
+
+.is-text-centered {
+  text-align: center;
+}
+
+.is-text-left {
+  text-align: left;
+}
+
+.is-text-right {
+  text-align: right;
+}
+
+// Visibility ----------------------------------------------------
+
+.is-hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.is-hidden-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.is-hidden-touch {
+  @include touch {
+    display: none !important;
+  }
+}
+
+.is-hidden-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+// Other ----------------------------------------------------
+
+.is-disabled {
+  pointer-events: none;
+}
+
+.is-marginless {
+  margin: 0 !important;
+}
+
+.is-unselectable {
+  @include unselectable;
+}
+>>>>>>> 4c83aa12b542fdf78c76b207067e7423f523d1a1

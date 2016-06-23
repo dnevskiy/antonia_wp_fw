@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Base site styling
  * -----------------------------------------------------------------------------
@@ -142,4 +143,150 @@ table {
   font-size: 21px;
   text-align: center;
   vertical-align: top;
+=======
+/**
+ * Base site styling
+ * -----------------------------------------------------------------------------
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  &.has-modal-open {
+    overflow: hidden;
+  }
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font-family--primary;
+}
+
+::selection {
+    background: $color--main;
+    color: $white;
+}
+
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: monospace;
+  line-height: 1.25;
+}
+
+body {
+  color: $color--text;
+  @include font-size($font-size--base);
+  line-height: 1.42857;
+}
+
+a {
+  @include link-colors($color--link,$color--link-hover);
+  @include transition-duration($transition-time--base);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+code {
+  background: $grey;
+  color: red;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 1px 2px 2px;
+}
+
+hr {
+  border-top-color: $grey;
+  margin: 20px 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline;
+}
+
+small {
+  font-size: $size-small;
+}
+
+strong {
+  color: $text-strong;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
+pre {
+  background: $grey;
+  color: $color--text;
+  white-space: pre;
+  word-wrap: normal;
+  code {
+    background: $grey;
+    color: $color--text;
+    display: block;
+    overflow-x: auto;
+    padding: 16px 20px;
+  }
+}
+
+table {
+  width: 100%;
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: $text-strong;
+  }
+}
+
+.block:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.container {
+  position: relative;
+  @include desktop {
+    margin: 0 auto;
+    max-width: 960px;
+    &.is-fluid {
+      margin: 0 20px;
+      max-width: none;
+    }
+  }
+}
+
+.fa {
+  font-size: 21px;
+  text-align: center;
+  vertical-align: top;
+>>>>>>> 4c83aa12b542fdf78c76b207067e7423f523d1a1
 }

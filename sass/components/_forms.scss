@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Forms
  * -----------------------------------------------------------------------------
@@ -14,4 +15,22 @@ textarea {
 
 textarea {
     resize: vertical;
+=======
+/**
+ * Forms
+ * -----------------------------------------------------------------------------
+ */
+
+input[type=text],
+input[type=search],
+input[type=url],
+input[type=email],
+input[type=number],
+textarea {
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+>>>>>>> 4c83aa12b542fdf78c76b207067e7423f523d1a1
 }
