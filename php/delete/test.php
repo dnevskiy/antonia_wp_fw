@@ -1,2 +1,0 @@
-ThankYou!
-delete/test.php

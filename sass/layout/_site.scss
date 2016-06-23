@@ -1,8 +1,51 @@
-body {
-	border:2em;
+/*	Body style 
+
+	Background:
+	0. Clean
+	1. Background colored
+	2. Background image
+
+	Border:
+	0. Clean
+	1. Top
+
+	.site style
+	0. Vithout Frame
+	1. Frame
+	*/
+
+$body-background-color: $antonia;
+$body-background-image: $body-background-image;
+$body-border: $antonia;
+
+$body: (
+	background:2,
+	border:1
+	);
+
+// default
+@mixin body (
+	$background:0,
+	$border:0
+	) {
+
+	body {
+	  @if $background == 1 {
+	    background-color: $body-background-color;
+	  } @else if $background == 2 {
+	    background-image: url($body-background-image);
+	  }
+	  @if $border == 1 {
+	    border-top: solid 10px $body-border;
+	  }
+	}
+
 }
+
+@include body($body...);
+
 .site {
-	max-width: 75rem;
 	width: 600px;
 	margin: 0 auto;
+	margin: 40px auto;
 }

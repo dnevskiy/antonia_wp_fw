@@ -10,7 +10,7 @@
 		</div><!-- .site-info -->
 	</footer>
 </div><!-- .site -->
-</div><!-- .site-border -->
+//= delete/footer-frame.php
 <?php wp_footer(); ?>
 <!-- Safely using .ready() before including jQuery -->
 <!-- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/ -->
