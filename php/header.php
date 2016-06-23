@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-//= delete_this_folder_before_prodaction/header-fl.php
-=======
 <?php
 /**
  * @package antonia
@@ -44,4 +41,3 @@
 		</nav><!-- #site-navigation -->
 	</header>
 	<div class="site-content">
->>>>>>> 4c83aa12b542fdf78c76b207067e7423f523d1a1

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
 * Output media queries in the <body> element for JS-hooks
 * -----------------------------------------------------------------------------
@@ -31,38 +30,4 @@ body {
     @include breakpoint(xsmall) {
         
     }
-=======
-/**
-* Output media queries in the <body> element for JS-hooks
-* -----------------------------------------------------------------------------
-* More info here: http://zerosixthree.se/detecting-media-queries-with-javascript/
-*/
-
-/* Mixin that will print out the breakpoint names
- * -------------------- */
-
-@mixin define-breakpoint($name) {
-    &:after {
-        content: $name;
-        display: none;
-    }
-}
-
-/* Print our breakpoint names as a pseudo element on the body element
- * -------------------- */
-
-body {
-    @include breakpoint(large) {
-        
-    }
-    @include breakpoint(medium) {
-        
-    }
-    @include breakpoint(small) {
-        
-    }
-    @include breakpoint(xsmall) {
-        
-    }
->>>>>>> 4c83aa12b542fdf78c76b207067e7423f523d1a1
 }
