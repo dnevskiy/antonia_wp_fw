@@ -3,14 +3,18 @@
  * @package antonia
  */
 ?>
-	</div><!-- .site-content -->
-	<footer class="site-footer" role="contentinfo">
-		<div>
+	</div><!-- .root-content -->
+	<footer class="root-footer" role="contentinfo">
+		<div class="footer-top">
+			menu
+		</div>
+		<div class="footer-bottom">
 			Site designed by <a href="http://nevskiy.com.ua" rel="designer">Nevskiy</a>
-		</div><!-- .site-info -->
+		</div><!-- .root-info -->
 	</footer>
-</div><!-- .site -->
-</div><!-- .site-border -->
+</div><!-- .root-container -->
+</div><!-- .root -->
+<!-- //= delete/footer-frame.php -->
 <?php wp_footer(); ?>
 <!-- Safely using .ready() before including jQuery -->
 <!-- http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/ -->

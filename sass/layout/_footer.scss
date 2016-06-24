@@ -1,21 +1,55 @@
-/**
- * Footer
- * -----------------------------------------------------------------------------
- */
+/*  Footer style 
 
-.footer {
-  @include background(/*color,img*/);
-  padding: 40px 20px 80px;
-  a {
-    color: $color--link;
-    &:hover {
-      color: $color--link-hover;
-    }
-    &:not(.icon) {
-      border-bottom: 1px solid $color--border;
-      &:hover {
-        border-bottom-color: $color--link;
-      }
+  Footer Background:
+  0. Clean
+  1. Background colored
+  2. Background image
+
+  Footer Border:
+  0. Clean
+  1. Top
+
+  */
+
+$footer_background_color: $antonia;
+$footer_background_image: $footer_background_image;
+
+$footer: (
+  background: 1,
+  border: 0
+  );
+
+@mixin footer (
+  $background: 0,
+  $border: 0
+  ) {
+
+  .root-footer {
+    @if $background == 1 {
+      padding: 40px 20px 80px;
+      background-color: $footer_background_color;
+      color: #fff;
+    } @else if $background == 2 {
+      background-image: url($footer_background_image);
     }
   }
+
 }
+
+@include footer($footer...);
+// .footer {
+  
+ 
+//   a {
+//     color: $color_link;
+//     &:hover {
+//       color: $color_link_hover;
+//     }
+//     &:not(.icon) {
+//       border-bottom: 1px solid $color_border;
+//       &:hover {
+//         border-bottom-color: $color_link;
+//       }
+//     }
+//   }
+// }

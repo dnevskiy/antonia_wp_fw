@@ -1,76 +1,80 @@
-@import "compass/css3/opacity";
-@import "compass/css3/transition";
-@import "compass/css3/border-radius";
-
-/**
- * Media Queries
+/*
+ * https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+ https://davidwalsh.name/write-media-queries-sass
+ https://habrahabr.ru/post/156645/
  * -----------------------------------------------------------------------------
- * A simple mixin for using media queries. Change the values to
- * fit your sites needs.
- *
- * Usage:
- *
- *      header {
-            @include breakpoint(large) {
-                background: red;
-            }
- *      }
  */
 
-@mixin breakpoint($break) {
-    @if $break == large {
-        @media (max-width: $large) { @content; }
-    }
-    @else if $break == medium {
-        @media (max-width: $medium) { @content; }
-    }
-    @else if $break == small {
-        @media (max-width: $small) { @content; }
-    }
-    @else {
-        @media (max-width: $xsmall) { @content; }
-    }
+/* Box Sizing 
+  
+  Usage:
+
+  *,
+  *:after,
+  *:before {
+    @include box-sizing(border-box);
+  }
+
+*/
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
 }
 
-@mixin from($device) {
-  @media screen and (min-width: $device) {
-    @content;
+/* Mixins for semi-transparent colors 
+  
+  Usage:
+
+  @include alpha-attribute('color', rgba(255,0,0, 0.5), white);
+
+*/
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+/* Mixins Box-shadow */
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
   }
 }
 
-@mixin until($device) {
-  @media screen and (max-width: $device - 1px) {
-    @content;
-  }
-}
+/* Mixins Media Query 
+ 
+  Usege:
 
-@mixin mobile {
-  @media screen and (max-width: $tablet - 1px) {
-    @content;
+  .test {
+    color: $antonia;
+    @include breakpoint(large) { color: $red; }
+    @include breakpoint(medium) { color: $green; }
+    @include breakpoint(small) { color: $yellow; }
   }
-}
 
-@mixin tablet {
-  @media screen and (min-width: $tablet) {
-    @content;
+*/
+
+@mixin bp($point) {
+  @if $point == l {
+    @media (max-width: $l) { @content; }
   }
-}
-
-@mixin touch {
-  @media screen and (max-width: $desktop - 1px) {
-    @content;
+  @else if $point == m {
+    @media (max-width: $m) { @content; }
   }
-}
-
-@mixin desktop {
-  @media screen and (min-width: $desktop) {
-    @content;
-  }
-}
-
-@mixin widescreen {
-  @media screen and (min-width: $widescreen) {
-    @content;
+  @else if $point == s {
+    @media (max-width: $s)  { @content; }
   }
 }
 
@@ -94,14 +98,14 @@
  *      }
  */
 
-@function calculateEm($size, $context: 16px) {
+/* @function calculateEm($size, $context: 16px) {
     @return ($size / $context) * 1em;
 }
 
 @mixin font-size($size) {
     font-size: $size;
     font-size: calculateEm($size);
-}
+} */
 
 /**
  * Font size
@@ -122,7 +126,7 @@
  *      }
  */
 
-@function calculateRem($size) {
+/* @function calculateRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
 }
@@ -130,7 +134,7 @@
 @mixin font-size($size) {
   font-size: $size;
   font-size: calculateRem($size);
-}
+} */
 /**
  * Expand element outside its container
  * -----------------------------------------------------------------------------
@@ -144,12 +148,12 @@
  *      }
  *
  */
-
+/* 
 @mixin expand-full-width() {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 }
-
+ */
 /**
  * Vertical align
  * -----------------------------------------------------------------------------
@@ -170,12 +174,12 @@
  *
  */
 
-@mixin vertical-align($position: relative) {
+/* @mixin vertical-align($position: relative) {
     position: $position;
     top: 50%;
     transform: translateY(-50%);
 }
-
+ */
 /**
  * Visually hide an element
  * -----------------------------------------------------------------------------
@@ -189,7 +193,7 @@
  *      }
  *
  */
-
+/* 
 %visually-hidden,
 .visually-hidden {
     position: absolute !important;
@@ -199,7 +203,7 @@
     padding: 0;
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
-}
+} */
 
 /**
  * Clearfix
@@ -215,7 +219,7 @@
  *
  */
 
-%clearfix,
+/* %clearfix,
 .clearfix {
     *zoom: 1;
 
@@ -244,14 +248,14 @@
     display: table;
     clear: both;
   }
-}
+} */
 
 /**
  * NOT A TESTING MIXIN
  * -----------------------------------------------------------------------------
  *
  */
-
+/* 
 @mixin overlay($offset: 0) {
   bottom: $offset;
   left: $offset;
@@ -266,13 +270,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+} */
 
-/**
- * NOT A TEMPLATE MIXIN
- * -----------------------------------------------------------------------------
- *
- */
 
 /**
  * Inline List
@@ -281,14 +280,14 @@
  *
  */
 
-@mixin inline-list {
+/* @mixin inline-list {
   list-style-type: none;
   &, & li {
     margin: 0;
     padding: 0;
     display: inline;
   }
-}
+} */
 
 /**
  * Link Colors
@@ -309,6 +308,7 @@
  *
  */
 
+/*
 @mixin link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false) {
   color: $normal;
   @if $visited {
@@ -332,14 +332,8 @@
     }
   }
 }
+*/
 
-@mixin filter($filter-type,$filter-amount) { 
-  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
-  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
-  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
-  -o-filter: $filter-type+unquote('(#{$filter-amount})');
-  filter: $filter-type+unquote('(#{$filter-amount})');
-}
 
 /**
  * Button types
@@ -354,7 +348,7 @@
  *  1. Small
  *  2. Large
  */
-
+/* 
 @mixin button($size: normal, $corner: false) {
   display: inline-block;
   cursor: pointer;
@@ -405,9 +399,9 @@
   font-size: 22px;
   height: 48px;
   padding: 11px 20px;
-}
+}*/
 /*-----------------------------*/
-@mixin background($type: color, $color: none, $bckg: none) {
+/* @mixin background($type: color, $color: none, $bckg: none) {
   @if $type == color {
     background-color: $color;
   }
@@ -417,26 +411,27 @@
   @else {
 
   }
-}
+} */
 
 /*
 * Animation
 * -------------
 */
 
-@keyframes spin-around {
+/* @keyframes spin-around {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
   }
-}
+} */
 
 /* 
 * findColorInvert
 * ---------------
 */
+/*
 @function powerNumber($number, $exp) {
   $value: 1;
   @if $exp > 0 {
@@ -487,15 +482,6 @@
   }
 }
 
-@mixin placeholder {
-  $placeholders: ":-moz" ":-webkit-input" "-moz" "-ms-input";
-  @each $placeholder in $placeholders {
-    &:#{$placeholder}-placeholder {
-      @content;
-    }
-  }
-}
-
 @mixin arrow($color) {
   border: 1px solid $color;
   border-right: 0;
@@ -526,3 +512,4 @@
   position: absolute;
   top: 50%;
 }
+ */

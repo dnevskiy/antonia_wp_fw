@@ -1,42 +1,38 @@
 /*	Body style 
 
-	Background:
+	Body Background:
 	0. Clean
 	1. Background colored
 	2. Background image
 
-	Border:
+	Body Border:
 	0. Clean
 	1. Top
 
-	.site style
-	0. Vithout Frame
-	1. Frame
 	*/
 
-$body-background-color: $antonia;
-$body-background-image: $body-background-image;
-$body-border: $antonia;
+$body_background_color:	$grey_lighter;
+$body_background_image:	$body_background_image;
+$body_border:						$antonia;
 
 $body: (
-	background:2,
-	border:1
+	background: 2,
+	border: 0
 	);
 
-// default
 @mixin body (
-	$background:0,
-	$border:0
+	$background: 0,
+	$border: 0
 	) {
 
 	body {
 	  @if $background == 1 {
-	    background-color: $body-background-color;
+	    background-color: $body_background_color;
 	  } @else if $background == 2 {
-	    background-image: url($body-background-image);
+	    background-image: url($body_background_image);
 	  }
 	  @if $border == 1 {
-	    border-top: solid 10px $body-border;
+	    border-top: solid 10px $body_border;
 	  }
 	}
 
@@ -44,8 +40,42 @@ $body: (
 
 @include body($body...);
 
-.site {
-	width: 600px;
-	margin: 0 auto;
-	margin: 40px auto;
+/*	.root style
+
+	0. Vithout Frame
+	1. Frame type 1
+	2. Frame type 2
+
+	*/
+
+$root: (
+	frame: 1
+	);
+
+@mixin root (
+	$frame: 0
+	) {
+
+	.root {
+		width: 1170px;
+		margin: 40px auto;
+	  @if $frame == 1 {
+			padding: 13px;
+			@include box-sizing(border-box);
+			@include alpha-attribute('background', rgba(158,158,158, 0.12), white);
+	  }
+	}
+	.root-container {
+		background: $white;
+		padding: 30px 64px;		
+		@if $frame == 1 {
+			@include box-shadow(0,0,5px,#C1C1C1);			
+		}		
+		@if $frame == 2 {
+			@include box-shadow(0,0,5px,#C1C1C1);			
+		}
+	}
+
 }
+
+@include root($root...);

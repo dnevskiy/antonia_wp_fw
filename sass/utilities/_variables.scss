@@ -4,6 +4,15 @@
  */
 
 // Layout
-$body-background-color: $antonia;
+
+$body-background-color: $white;
 $body-background-image: '../img/bg.jpg';
 $body-border: $antonia;
+
+$footer_background_color: $antonia;
+$footer_background_image: '../img/bg.jpg';
+
+// MEdia Query
+$l:1024px;
+$m:768px;
+$s:320px;
