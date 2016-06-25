@@ -14,21 +14,49 @@
 $footer_background_color: $antonia;
 $footer_background_image: $footer_background_image;
 
-$footer: (
-  background: 1,
-  border: 0
-  );
-
 @mixin footer (
   $background: 0,
-  $border: 0
+  $wide: 0
   ) {
 
   .root-footer {
+    padding-top: 40px;
+    text-align: center;
+    @if $wide == 1 {
+      position: relative;
+      z-index: 1;
+      &:before {
+        content: " ";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 9999%;
+        right: -100%;
+        z-index: -1;
+      }
+    }@else if $wide == left {
+      position: relative;
+      &:before {
+        content: " ";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 9999%;
+        right: 100%;
+      }        
+    }@else if $wide == right {
+      position: relative;
+      &:before {
+        content: " ";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 9999%;
+        left: 100%;
+      }        
+    }
     @if $background == 1 {
-      padding: 40px 20px 80px;
       background-color: $footer_background_color;
-      color: #fff;
     } @else if $background == 2 {
       background-image: url($footer_background_image);
     }

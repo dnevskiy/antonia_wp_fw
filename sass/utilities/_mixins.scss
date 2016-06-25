@@ -59,9 +59,9 @@
 
   .test {
     color: $antonia;
-    @include breakpoint(large) { color: $red; }
-    @include breakpoint(medium) { color: $green; }
-    @include breakpoint(small) { color: $yellow; }
+    @include bp(l) { color: $red; }
+    @include bp(m) { color: $green; }
+    @include bp(s) { color: $yellow; }
   }
 
 */

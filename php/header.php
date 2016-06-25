@@ -14,12 +14,11 @@
 	<div class="root-container">
 		<header class="root-header" role="banner">
 			<div class="root-branding">
-			<p class="test">Test</p>
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/img/logo.svg" alt="brand name"></a></h1>
 				<?php else : ?>
-					<p class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<p class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/img/logo.svg" alt="brand name"></a></p>
 				<?php
 				endif;
 				$description = get_bloginfo( 'description', 'display' );

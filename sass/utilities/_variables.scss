@@ -8,11 +8,22 @@
 $body-background-color: $white;
 $body-background-image: '../img/bg.jpg';
 $body-border: $antonia;
+$body: (
+	background: 2,
+	border: 0
+	);
+$root: (
+	frame: 1
+	);
 
 $footer_background_color: $antonia;
 $footer_background_image: '../img/bg.jpg';
+$footer: (
+  background: 0,
+  wide: 0
+  );
 
 // MEdia Query
-$l:1024px;
+$l:1200px;
 $m:768px;
 $s:320px;

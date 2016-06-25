@@ -15,10 +15,7 @@ $body_background_color:	$grey_lighter;
 $body_background_image:	$body_background_image;
 $body_border:						$antonia;
 
-$body: (
-	background: 2,
-	border: 0
-	);
+
 
 @mixin body (
 	$background: 0,
@@ -48,17 +45,18 @@ $body: (
 
 	*/
 
-$root: (
-	frame: 1
-	);
+
 
 @mixin root (
 	$frame: 0
 	) {
 
 	.root {
-		width: 1170px;
+		width: 1144px;
+		min-width: 320px;
 		margin: 40px auto;
+		@include bp(l) { width: 768px; }
+		@include bp(m) { width: 100%; margin: 0 auto; }
 	  @if $frame == 1 {
 			padding: 13px;
 			@include box-sizing(border-box);
@@ -66,13 +64,12 @@ $root: (
 	  }
 	}
 	.root-container {
-		background: $white;
-		padding: 30px 64px;		
-		@if $frame == 1 {
+		padding: 30px 64px;
+		@include bp(m) { padding: 30px; }
+		@include bp(s) { padding: 10px; }
+		@if $frame > 0 {
 			@include box-shadow(0,0,5px,#C1C1C1);			
-		}		
-		@if $frame == 2 {
-			@include box-shadow(0,0,5px,#C1C1C1);			
+			background: $white;
 		}
 	}
 
