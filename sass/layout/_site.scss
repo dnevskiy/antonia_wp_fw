@@ -24,9 +24,9 @@ $body_border:						$antonia;
 
 	body {
 	  @if $background == 1 {
-	    background-color: $body_background_color;
+	    background: $body_background_color;
 	  } @else if $background == 2 {
-	    background-image: url($body_background_image);
+	    background: $body_background_image;
 	  }
 	  @if $border == 1 {
 	    border-top: solid 10px $body_border;
@@ -36,16 +36,6 @@ $body_border:						$antonia;
 }
 
 @include body($body...);
-
-/*	.root style
-
-	0. Vithout Frame
-	1. Frame type 1
-	2. Frame type 2
-
-	*/
-
-
 
 @mixin root (
 	$frame: 0

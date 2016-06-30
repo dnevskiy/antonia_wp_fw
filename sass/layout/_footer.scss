@@ -11,7 +11,7 @@
 
   */
 
-$footer_background_color: $antonia;
+$footer_background_color: $footer_background_color;
 $footer_background_image: $footer_background_image;
 
 @mixin footer (
@@ -22,77 +22,98 @@ $footer_background_image: $footer_background_image;
   .root-footer {
     padding-top: 40px;
     text-align: center;
-    @if $wide == 1 {
-      position: relative;
-      z-index: 1;
-      &:before {
-        content: " ";
-        height: 100%;
-        position: absolute;
-        top: 0;
-        width: 9999%;
-        right: -100%;
-        z-index: -1;
-        @if $background == 1 {
-          background-color: $footer_background_color;
-        } @else if $background == 2 {
-          background-image: url($footer_background_image);
-        }
+
+    @if $background > 0 {
+
+      @if $background == 1 {
+        background: $footer_background_color;
+      } @else if $background == 2 {
+        background: $footer_background_image;
       }
-    }@else if $wide == left {
-      position: relative;
-      &:before {
-        content: " ";
-        height: 100%;
-        position: absolute;
-        top: 0;
-        width: 9999%;
-        right: 100%;
-        @if $background == 1 {
-          background-color: $footer_background_color;
-        } @else if $background == 2 {
-          background-image: url($footer_background_image);
+
+      @if $wide == 1 {
+        position: relative;
+        z-index: 1;
+        &:before {
+          content: " ";
+          height: 100%;
+          position: absolute;
+          top: 0;
+          width: 9999%;
+          right: -100%;
+          z-index: -1;
+          @if $background == 1 {
+            background: $footer_background_color;
+          } @else if $background == 2 {
+            background: $footer_background_image;
+          }
         }
-      }        
-    }@else if $wide == right {
-      position: relative;
-      &:before {
-        content: " ";
-        height: 100%;
-        position: absolute;
-        top: 0;
-        width: 9999%;
-        left: 100%;
-        @if $background == 1 {
-          background-color: $footer_background_color;
-        } @else if $background == 2 {
-          background-image: url($footer_background_image);
+      }@else if $wide == left {
+        position: relative;
+        &:before {
+          content: " ";
+          height: 100%;
+          position: absolute;
+          top: 0;
+          width: 9999%;
+          right: 100%;
+          @if $background == 1 {
+            background: $footer_background_color;
+          } @else if $background == 2 {
+            background: $footer_background_image;
+          }
         }
-      }        
+      }@else if $wide == right {
+        position: relative;
+        &:before {
+          content: " ";
+          height: 100%;
+          position: absolute;
+          top: 0;
+          width: 9999%;
+          left: 100%;
+          @if $background == 1 {
+            background: $footer_background_color;
+          } @else if $background == 2 {
+            background: $footer_background_image;
+          }
+        }        
+      }
+
     }
-    @if $background == 1 {
-      background-color: $footer_background_color;
-    } @else if $background == 2 {
-      background-image: url($footer_background_image);
-    }
+
+  .logo {
+    
+  }
+  .root-footer-top {
+
+  }
+  .root-footer-bottom {
+    padding: 25px 0;
+  }
+  small {
+  }
+  .copyrigth {
+      padding-top: 24px;    
+  }
   }
 
 }
 
 @include footer($footer...);
-// .footer {
-  
+/* .footer {
+
  
-//   a {
-//     color: $color_link;
-//     &:hover {
-//       color: $color_link_hover;
-//     }
-//     &:not(.icon) {
-//       border-bottom: 1px solid $color_border;
-//       &:hover {
-//         border-bottom-color: $color_link;
-//       }
-//     }
-//   }
-// }
+  a {
+    color: $color_link;
+    &:hover {
+      color: $color_link_hover;
+    }
+    &:not(.icon) {
+      border-bottom: 1px solid $color_border;
+      &:hover {
+        border-bottom-color: $color_link;
+      }
+    }
+  }
+} */
