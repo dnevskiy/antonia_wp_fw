@@ -15,7 +15,10 @@ $body_background_color:	$grey_lighter;
 $body_background_image:	$body_background_image;
 $body_border:						$antonia;
 
-
+*::-moz-selection {
+    color: $white;
+    background-color: $antonia;
+}
 
 @mixin body (
 	$background: 0,
