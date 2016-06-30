@@ -33,6 +33,11 @@ $footer_background_image: $footer_background_image;
         width: 9999%;
         right: -100%;
         z-index: -1;
+        @if $background == 1 {
+          background-color: $footer_background_color;
+        } @else if $background == 2 {
+          background-image: url($footer_background_image);
+        }
       }
     }@else if $wide == left {
       position: relative;
@@ -43,6 +48,11 @@ $footer_background_image: $footer_background_image;
         top: 0;
         width: 9999%;
         right: 100%;
+        @if $background == 1 {
+          background-color: $footer_background_color;
+        } @else if $background == 2 {
+          background-image: url($footer_background_image);
+        }
       }        
     }@else if $wide == right {
       position: relative;
@@ -53,6 +63,11 @@ $footer_background_image: $footer_background_image;
         top: 0;
         width: 9999%;
         left: 100%;
+        @if $background == 1 {
+          background-color: $footer_background_color;
+        } @else if $background == 2 {
+          background-image: url($footer_background_image);
+        }
       }        
     }
     @if $background == 1 {
