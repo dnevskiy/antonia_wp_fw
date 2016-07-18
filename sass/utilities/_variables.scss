@@ -1,29 +1,33 @@
 /**
  * Set Your Defaults:
  * -----------------------------------------------------------------------------
+
+ Templates:
+ @import 'tmplates/fl'
+
  */
 
-// Layout
+$a-z: 1;
 
-$body-background-color: $white;
-$body-background-image: url(../img/bg.jpg);
-$body-border: $antonia;
 $body: (
-	background: 2,	// types: 0, 1, 2
-	border: 0				// types: 0, 1
+	background: 0,	// types: 0, 1, 2
+	border: $a-z				// types: 0, 1
 	);
 $root: (
-	frame: 1				// types: 0, 1, >0
+	frame: 0				// types: 0, 1, >0
 	);
 
-$footer_background_color: $antonia;
-$footer_background_image: url(../img/bg.jpg);
 $footer: (
-  background: 0,	// types: 1, 2
-  wide: 0			// types: 1, left, right
+  background: 0,	// types: 0, 1, 2
+  wide: 0,				// types: 0, 1, left, right
+  color: $grey		// types:
   );
 
 // MEdia Query
-$l:1200px;
-$m:768px;
-$s:320px;
+$xl:2000px; // for sumo sized (mac) screens 
+$l:1440px; // styles for browsers larger than 1440px;
+$m:960px; // styles for browsers larger than 960px;
+$s:480px; // styles for mobile browsers smaller than 480px; (iPhone)
+/* different techniques for iPad screening */
+$short: 481px;
+$long: 1024px;

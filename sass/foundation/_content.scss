@@ -1,15 +1,38 @@
+.container {
+  position: relative;
+ // @include desktop {
+    // margin: 0 auto;
+    // max-width: 960px;
+    // &.is-fluid {
+    //   margin: 0 20px;
+    //   max-width: none;
+    // }
+  //}
+}
+a {
+ // @include link-colors($color--link,$color--link-hover);
+  //@include transition-duration($transition-time--base);
+}
+.block:not(:last-child) {
+  margin-bottom: 20px;
+}
+.fa {
+  font-size: 21px;
+  text-align: center;
+  vertical-align: top;
+}
 .content {
   @extend .block;
   &.is-medium {
-    font-size: $size-5;
+    //font-size: $size-5;
     code {
-      font-size: $size-6;
+    //  font-size: $size-6;
     }
   }
   &.is-large {
-    font-size: $size-4;
+  //  font-size: $size-4;
     code {
-      font-size: $size-5;
+   //   font-size: $size-5;
     }
   }
   h1,
@@ -31,23 +54,26 @@
     }
   }
   h1 {
-    font-size: 32px;
+    @include font-size($size-1);
   }
   h2 {
-    font-size: 28px;
+    @include font-size($size-2);
+    font-weight: 100;
   }
   h3 {
-    font-size: 24px;
+    @include font-size($size-4);
+    font-weight: 400;
   }
   h4 {
-    font-size: 20px;
+    @include font-size($size-5);
   }
   h5 {
-    font-size: 18px;
+    @include font-size($size-6);
   }
   h6 {
-    font-size: 16px;
+    @include font-size($size-7);
   }
+
   p:not(:last-child) {
     margin-bottom: 16px;
   }
@@ -70,8 +96,8 @@
     }
   }
   blockquote {
-    background: $background;
-    border-left: 5px solid $color--border;
+   // background: $background;
+  //  border-left: 5px solid $color--border;
     padding: 24px;
     &:not(:last-child) {
       margin-bottom: 16px;

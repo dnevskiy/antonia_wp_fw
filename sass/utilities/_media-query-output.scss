@@ -3,31 +3,43 @@
 * -----------------------------------------------------------------------------
 * More info here: http://zerosixthree.se/detecting-media-queries-with-javascript/
 */
+ 
+//----- Grid System
+// $grid-spacing: 3px; 
+// .row {
+//     @extend %clearfix;
+ 
+//     & + & {
+//         margin-top:$grid-spacing;
+//     }
+// }
+ 
+// [class^="tony-"] {
+//     float:left;
+//     margin-right:$grid-spacing;
+//     -webkit-box-sizing:border-box; 
+//     -moz-box-sizing:border-box; 
+//     box-sizing:border-box;
+ 
+//     &:last-child {
+//         margin-right:0%;
+//     }
+// }
+
+$tgs: 3%;
+$tony_col: 12;
+@mixin tony($count) {
+    width:(100% / ($tony_col / $count)) - ($tgs * ($tony_col - $count) / $tony_col);
+    float: left;
+    margin-right:$tgs;
+}
 
 /* Mixin that will print out the breakpoint names
  * -------------------- */
 
-@mixin define-breakpoint($name) {
-    &:after {
-        content: $name;
-        display: none;
-    }
-}
-
-/* Print our breakpoint names as a pseudo element on the body element
- * -------------------- */
-
-body {
-    @include breakpoint(large) {
-        
-    }
-    @include breakpoint(medium) {
-        
-    }
-    @include breakpoint(small) {
-        
-    }
-    @include breakpoint(xsmall) {
-        
-    }
-}
+// @mixin define-breakpoint($name) {
+//     &:after {
+//         content: $name;
+//         display: none;
+//     }
+// }

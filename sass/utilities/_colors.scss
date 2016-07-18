@@ -18,22 +18,29 @@ $red:														#ed6c63;
 $antonia:												#1fc8db;
 $yellow:												#fce473;
 
-$primary_color:									$antonia;
-$secondary_color:								$antonia;
-
 $color_text:										$grey_dark;
-
 $text_strong:										$grey_darker;
 $text_light:										$grey;
 
-/* Alert Color
-Success Color
-Warning Color
-Body Font Color
-Header Font Color */
-/* $primary-color-invert:					findColorInvert($primary-color);
-$secondary-color-invert:				findColorInvert($secondary-color); */
+// Brand Colors
+$primary_color:									#9e338c;
+$secondary_color:								#c62c20;
 
-// $color--facebook:								#03539e;
-// $color--twitter:								#35ccff;
-// $color--linkedin:								#217bc1;
+// Elements
+$color_banner_widget:						$grey_lighter;
+
+// Alert Colors
+$success_color:									$green;
+$warning_color:									$red;
+$error_color:										$orange;
+$footer_font_color:							$grey_dark;
+$header_font_color:							$grey_lighter;
+
+// Social Colors
+$color_facebook:								#03539e;
+$color_twitter:									#35ccff;
+$color_linkedin:								#217bc1;
+
+$body-background-color: $white;
+$footer_background_color: $antonia;
+$body-border: $antonia;

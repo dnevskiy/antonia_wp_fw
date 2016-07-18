@@ -7,6 +7,7 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+	<small>t-p/content-page.php</small>
 	<div class="entry-content">
 		<?php
 			the_content();
@@ -14,6 +15,20 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'antonia' ),
 				'after'  => '</div>',
 			) );
+
+
+$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+
+foreach( $mypages as $page ) {      
+	$content = $page->post_content;
+	if ( ! $content ) // Check for empty page
+		continue;
+
+	$content = apply_filters( 'the_content', $content );
+	?>
+		<h2><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h2>
+	<?php
+}
 		?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">

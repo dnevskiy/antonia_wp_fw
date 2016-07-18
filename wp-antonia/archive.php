@@ -3,7 +3,8 @@
  * @package antonia
  */
 get_header(); ?>
-		<main>
+<small>archive.php</small>
+		<main class='main'>
 		<?php
 		if ( have_posts() ) : ?>
 			<header class="page-header">

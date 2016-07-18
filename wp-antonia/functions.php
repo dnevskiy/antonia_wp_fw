@@ -125,8 +125,26 @@ add_action( 'after_setup_theme', 'antonia_content_width', 0 );
  */
 function antonia_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'antonia' ),
+		'name'          => esc_html__( 'Right Sidebar', 'antonia' ),
 		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'antonia' ),
+		'before_widget' => '<section class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Header Sidebar', 'antonia' ),
+		'id'            => 'sidebar-header',
+		'description'   => esc_html__( 'Add widgets here.', 'antonia' ),
+		'before_widget' => '<section class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Sidebar', 'antonia' ),
+		'id'            => 'sidebar-footer',
 		'description'   => esc_html__( 'Add widgets here.', 'antonia' ),
 		'before_widget' => '<section class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -135,6 +153,8 @@ function antonia_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'antonia_widgets_init' );
+
+
 
 /**
  * Enqueue scripts and styles.
@@ -192,3 +212,11 @@ function footer_enqueue_scripts(){
   add_action('wp_footer','wp_print_head_scripts',5);
 }
 add_action('after_setup_theme','footer_enqueue_scripts');
+
+// Antonia Widgets
+require_once dirname( __FILE__ ) . '/includes/widgets/class-antonia-widget-imgbanner.php';
+require_once dirname( __FILE__ ) . '/includes/widgets/class-antonia-widget-box.php';
+add_action("widgets_init", function () {
+    register_widget("antonia_img_banner");
+    register_widget("antonia_widget_box");
+});

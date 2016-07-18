@@ -3,7 +3,8 @@
  * @package antonia
  */
 get_header(); ?>
-		<main>
+<small>single.php</small>
+		<main class='main'>
 		<?php
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_format() );

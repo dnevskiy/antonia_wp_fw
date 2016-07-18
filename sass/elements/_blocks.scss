@@ -1,4 +1,82 @@
 /**
+ * The Top banner widget
+ * -----------------------------------------------------------------------------
+ * Courtesy of Nicole Sullivan. Demo: http://goo.gl/sCZKxk
+ *
+ * Usage:
+ *
+ *
+ * Emmet:
+ *    
+ */
+.top-banner-widget {
+    border: 4px solid $color_banner_widget;
+}
+
+
+
+	.item-hover{
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+		
+	}
+
+	.item-hover .item{
+		float: left;
+		padding: 0px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.item-hover .item:hover .caption{
+		opacity: 1;
+
+	}
+
+
+	.item-hover img{
+		margin: 0px;
+		padding: 0px;
+		float: left;
+		z-index: 4;
+	}
+
+
+	.item-hover .caption{
+		cursor: pointer;
+		position: absolute;
+		opacity: 0;
+		-webkit-transition:all 0.45s ease-in-out;
+		-moz-transition:all 0.45s ease-in-out;
+		-o-transition:all 0.45s ease-in-out;
+		-ms-transition:all 0.45s ease-in-out;
+		transition:all 0.45s ease-in-out;
+
+	}
+	.item-hover .blur{
+		background-color: rgba(0,0,0,0.65);
+		width: 345px;
+		height: 420px;
+		z-index: 5;
+		position: absolute;
+	}
+
+	.item-hover .caption-text h1{
+		text-transform: uppercase;
+		font-size: 24px;
+	}
+	.item-hover .caption-text{
+		padding: 22px;
+		z-index: 10;
+		color: #fff;
+		position: absolute;
+		width: 345px;
+		height: 420px;
+	}
+
+
+/**
  * The Media Block
  * -----------------------------------------------------------------------------
  * Courtesy of Nicole Sullivan. Demo: http://goo.gl/sCZKxk
@@ -19,23 +97,23 @@
  *      .media-block>a.media-block__image-container>img[http://placehold.it/50]^.media-block__body>h2{I'm a heading inside a media block}+p{And some text inside it as well}
  */
 
-.media-block {
-    margin: $spacing--medium;
-}
+// .media-block {
+//     margin: $spacing--medium;
+// }
 
-.media-block,
-.media-block__body {
-    @extend %clearfix;
-}
+// .media-block,
+// .media-block__body {
+//     @extend %clearfix;
+// }
 
-.media-block__image-container {
-    float: left;
-    margin-right: $spacing--medium;
+// .media-block__image-container {
+//     float: left;
+//     margin-right: $spacing--medium;
 
-    img {
-        display: block;
-    }
-}
+//     img {
+//         display: block;
+//     }
+// }
 
 /**
  * The Flag Block
@@ -56,41 +134,41 @@
  *      .flag-block>.flag__image>img[http://placehold.it/150]^.flag__body>p{lorem8}
  */
 
-.flag-block {
-    display: table;
-    width: 100%;
-}
+// .flag-block {
+//     display: table;
+//     width: 100%;
+// }
 
-.flag__image {
-    display: table-cell;
-    vertical-align: middle;
+// .flag__image {
+//     display: table-cell;
+//     vertical-align: middle;
 
-    .flag--top & {
-        vertical-align: top;
-    }
+//     .flag--top & {
+//         vertical-align: top;
+//     }
 
-    .flag--bottom & {
-        vertical-align: bottom;
-    }
-}
+//     .flag--bottom & {
+//         vertical-align: bottom;
+//     }
+// }
 
-.flag__image {
-    padding-right: $spacing--medium;
+// .flag__image {
+//     padding-right: $spacing--medium;
 
-    > img {
-        display: block;
-        max-width: none;
+//     > img {
+//         display: block;
+//         max-width: none;
 
-        .flag--rev & {
-            padding-right: 0;
-            padding-left: $spacing--medium;
-        }
-    }
-}
+//         .flag--rev & {
+//             padding-right: 0;
+//             padding-left: $spacing--medium;
+//         }
+//     }
+// }
 
-.flag__body {
-    width: 100%;
-}
+// .flag__body {
+//     width: 100%;
+// }
 
 /**
  * NOT A TEMPLATE BLOCKS
@@ -102,69 +180,69 @@
 ----------------------
 */
 
-.tony {
-    width: 100%;
-}
+// .tony {
+//     width: 100%;
+// }
 
-.helen {
-    @include breakpoint(large) {
-        width: ($medium - 40)/2;
-    }
-    @include breakpoint(medium) {
-        width: ($small - 40)/2;
-    }
-    @include breakpoint(small) {
-        width: ($xsmall - 40)/2;
-    }
-    @include breakpoint(xsmall) {
-        width: ($small - 40)/2;
-    }
-}
+// .helen {
+//     @include breakpoint(large) {
+//         width: ($medium - 40)/2;
+//     }
+//     @include breakpoint(medium) {
+//         width: ($small - 40)/2;
+//     }
+//     @include breakpoint(small) {
+//         width: ($xsmall - 40)/2;
+//     }
+//     @include breakpoint(xsmall) {
+//         width: ($small - 40)/2;
+//     }
+// }
 
-.all-link {
-    margin-top: 12px;
-    display: inline-block;
-    color: $color--black;
-    text-decoration: none;
-}
+// .all-link {
+//     margin-top: 12px;
+//     display: inline-block;
+//     color: $color--black;
+//     text-decoration: none;
+// }
 
-.lib {
-    position: relative;
-    height: 400px;
-    padding-top: 30px;
-    border-top: 1px dashed $color--link;
-    border-bottom: 1px dashed $color--link;
-    &-item {
-        height: 100px;
-        padding-left: 120px;
-        display: block;
-        margin-bottom: 20px;
-        text-decoration: none;
-        color: $color--black;
-        text-align: left;
-        &:hover img{
-            @include transition-property(filter);
-            @include transition-duration($transition-time--base);
-            filter: none;
-        }
-    }
-    img {
-        height: 100px;
-        width: 100px;
-        position: absolute;
-        left: 0;
-        @include filter(grayscale, 100%);
-    }
-}
+// .lib {
+//     position: relative;
+//     height: 400px;
+//     padding-top: 30px;
+//     border-top: 1px dashed $color--link;
+//     border-bottom: 1px dashed $color--link;
+//     &-item {
+//         height: 100px;
+//         padding-left: 120px;
+//         display: block;
+//         margin-bottom: 20px;
+//         text-decoration: none;
+//         color: $color--black;
+//         text-align: left;
+//         &:hover img{
+//             @include transition-property(filter);
+//             @include transition-duration($transition-time--base);
+//             filter: none;
+//         }
+//     }
+//     img {
+//         height: 100px;
+//         width: 100px;
+//         position: absolute;
+//         left: 0;
+//         @include filter(grayscale, 100%);
+//     }
+// }
 
-.gal {
-    padding: 30px 0;
-    border-top: 1px dashed $color--link;
-    border-bottom: 1px dashed $color--link;
-    &-item {
-        margin-right: 30px;
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-}
+// .gal {
+//     padding: 30px 0;
+//     border-top: 1px dashed $color--link;
+//     border-bottom: 1px dashed $color--link;
+//     &-item {
+//         margin-right: 30px;
+//         &:last-child {
+//             margin-right: 0;
+//         }
+//     }
+// }

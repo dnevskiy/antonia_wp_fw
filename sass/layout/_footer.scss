@@ -16,12 +16,14 @@ $footer_background_image: $footer_background_image;
 
 @mixin footer (
   $background: 0,
-  $wide: 0
+  $wide: 0,
+  $color: $grey
   ) {
 
   .root-footer {
     padding-top: 40px;
     text-align: center;
+    color: $color;
 
     @if $background > 0 {
 
@@ -77,43 +79,48 @@ $footer_background_image: $footer_background_image;
           } @else if $background == 2 {
             background: $footer_background_image;
           }
-        }        
+        }
       }
 
     }
 
-  .logo {
+  &-logo {
     
   }
-  .root-footer-top {
+  &-top {
 
   }
-  .root-footer-bottom {
-    padding: 25px 0;
+  &-bottom {
+    padding-top: 25px; // 30px
   }
   small {
+  }  
+  .copyright {
+    padding-top: 25px; // 30px   
   }
-  .copyrigth {
-      padding-top: 24px;    
-  }
+
+  a {
+      color: $grey_dark;
+      &:hover {
+        color: $grey;
+      }
+    }
+  
   }
 
 }
 
 @include footer($footer...);
-/* .footer {
 
- 
-  a {
-    color: $color_link;
-    &:hover {
-      color: $color_link_hover;
-    }
-    &:not(.icon) {
-      border-bottom: 1px solid $color_border;
-      &:hover {
-        border-bottom-color: $color_link;
-      }
-    }
-  }
-} */
+  // a {
+  //     color: $grey_dark;
+  //     &:hover {
+  //       color: $grey;
+  //     }
+  //     &:not(.icon) {
+  //       border-bottom: 1px solid $grey_dark;
+  //       &:hover {
+  //         border-bottom-color: $grey;
+  //       }
+  //     }
+  //   }

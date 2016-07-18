@@ -12,8 +12,51 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/css/main.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://localhost:3000/wp-antonia/wp-content/themes/wp-antonia/css/main.css" type="text/css" media="all" />
+	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/main.css" type="text/css" media="all" /> -->
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+
+<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+      var map;
+ 
+       var oz = new google.maps.LatLng(39.3283543,-32.4716371);
+      var MY_MAPTYPE_ID = 'custom_style';
+      function initialize() {
+ 
+       var featureOpts = [
+							  {
+							    "featureType": "water",
+							    "elementType": "geometry",
+							    "stylers": [
+							      { "visibility": "on" },
+							      { "color": "#f1f1f1" }
+							    ]
+							  },{
+							    "featureType": "poi",
+							    "stylers": [
+							      { "color": "#ffffff" }
+							    ]
+							  }
+							];
+        var mapOptions = {
+          zoom: 13,
+          center: oz,
+          mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+          },
+          mapTypeId: MY_MAPTYPE_ID
+        };
+ 
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        var styledMapOptions = {
+          name: 'Custom Style'
+        };
+        var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+        map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+      }
+    </script> -->
 	<!-- http://realfavicongenerator.net -->
 	<?php wp_head(); ?>
 		<!-- Safely using .ready() before including jQuery -->
@@ -24,23 +67,9 @@
 <div class="root">
 	<div class="root-container">
 		<header class="root-header" role="banner">
-			<div class="root-branding">
-				<?php
-				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/img/logo.svg" alt="brand name"></a></h1>
-				<?php else : ?>
-					<p class="root-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/img/logo.svg" alt="brand name"></a></p>
-				<?php
-				endif;
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="root-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-				<?php
-				endif; ?>
-			</div><!-- .site-branding -->
-			<nav id="root-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'antonia' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav><!-- #site-navigation -->
+
+<div class="head"></div>
+
+
 		</header>
 		<div class="root-content">

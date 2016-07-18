@@ -3,7 +3,7 @@
  * @package antonia
  */
 get_header(); ?>
-	<section class="site-content">
+	<small>search.php</small>
 		<main>
 		<?php
 		if ( have_posts() ) : ?>
@@ -25,7 +25,6 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 		endif; ?>
 		</main>
-	</section><!-- .content -->
 <?php
 get_sidebar();
 get_footer();

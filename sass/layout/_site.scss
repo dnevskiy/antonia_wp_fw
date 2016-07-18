@@ -11,14 +11,9 @@
 
 	*/
 
-$body_background_color:	$grey_lighter;
+$body_background_color:	#000;
 $body_background_image:	$body_background_image;
 $body_border:						$antonia;
-
-*::-moz-selection {
-    color: $white;
-    background-color: $antonia;
-}
 
 @mixin body (
 	$background: 0,
@@ -45,27 +40,50 @@ $body_border:						$antonia;
 	) {
 
 	.root {
-		width: 1144px;
+		//max-width: 1440px;
 		min-width: 320px;
-		margin: 40px auto;
-		@include bp(l) { width: 768px; }
-		@include bp(m) { width: 100%; margin: 0 auto; }
+		//margin: 40px auto;
+		//@include bp(l) { width: 768px; }
+		//@include bp(m) { width: 100%; margin: 0 auto; }
+	 
 	  @if $frame == 1 {
 			padding: 13px;
 			@include box-sizing(border-box);
 			@include alpha-attribute('background', rgba(158,158,158, 0.12), white);
 	  }
+
 	}
+
 	.root-container {
-		padding: 30px 64px;
-		@include bp(m) { padding: 30px; }
-		@include bp(s) { padding: 10px; }
+		//padding: 30px 64px;
+		//@include bp(m) { padding: 30px; }
+		//@include bp(s) { padding: 10px; }
+		
 		@if $frame > 0 {
 			@include box-shadow(0,0,5px,#C1C1C1);			
 			background: $white;
+		}
+
+	}
+
+	.root-content {
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
 		}
 	}
 
 }
 
 @include root($root...);
+
+
+.main {
+	//width: calc(100% - 23% - 80px);
+	//float: left;
+}
+aside {
+	//width: 23%;
+	//float: right;
+}

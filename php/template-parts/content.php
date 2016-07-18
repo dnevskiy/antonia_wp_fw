@@ -1,8 +1,9 @@
-<?php
+<?php 
 /**
  * @package antonia
  */
 ?>
+
 <article>
 	<header class="entry-header">
 		<?php
@@ -18,7 +19,41 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
+	<small>t-p/content.php</small>
 	<div class="entry-content">
+<div class="row">
+<div class="col-2">2</div>
+<div class="col-2">2</div>
+<div class="col-2">2</div>
+<div class="col-2">2</div>
+<div class="col-2">2</div>
+	<div class="col-2">2</div></div>
+<div class="row">
+<div class="tony-3">3</div>
+<div class="tony-3">3</div>
+<div class="tony-2">2</div>
+	<div class="col-3">3</div></div>
+<div class="row">
+<div class="col-4">4</div>
+<div class="col-4">4</div>
+	<div class="col-4">4</div></div>
+<div class="row">
+<div class="tony-6">6</div>
+<div class="tony-6">6</div>
+	<div class="col-6">6</div></div>
+<div class="row">
+<div class="col-10">10</div>
+	<div class="col-12">12</div></div>
+<div class="row">
+<div class="col-5">5</div>
+<div class="col-5">5</div>
+<div class="col-5">5</div>
+<div class="col-5">5</div>
+	<div class="col-5">5</div></div>
+
+
+
+
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

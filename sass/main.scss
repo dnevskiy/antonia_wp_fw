@@ -6,19 +6,20 @@ http://www.templatemonster.com/ua/demo/54790.html
 mixins
 http://thesassway.com/intermediate 
  * -------------------- */
+@import 'node_modules/susy/sass/susy';
 
 @import 'utilities/utilities';
 
 /* Foundation
  * -------------------- */
 
-/* @import 'foundation/base'; */
+@import 'foundation/foundation';
 
 /* Components
  * -------------------- */
 
-/* @import 'elements/elements';
-@import 'components/components'; */
+@import 'elements/elements';
+// @import 'components/components';
 
 /* Layout
  * -------------------- */

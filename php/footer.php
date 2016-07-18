@@ -4,18 +4,8 @@
  */
 ?>
 	</div><!-- .root-content -->
-	<footer class="root-footer" role="contentinfo">
-		<div class="root-footer-top">
-			menu
-		</div>
-		<div class="root-footer-bottom">
-			<div class="logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="//localhost:3000/wp-antonia/wp-content/themes/wp-antonia/img/logo.svg" alt="brand name"></a>
-			</div>
-			<div class="copyrigth">
-				<small>Site designed by <a href="http://nevskiy.com.ua" rel="designer">Nevskiy</a></small>
-			</div>
-		</div><!-- .root-info -->
+	<footer class="ftr" role="contentinfo">
+
 	</footer>
 </div><!-- .root-container -->
 </div><!-- .root -->

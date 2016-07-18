@@ -67,14 +67,26 @@
 */
 
 @mixin bp($point) {
+      /* default styles here for older browsers. 
+       I tend to go for a 600px - 960px width max but using percentages
+    */
+  @if $point == xl {
+    @media only screen and (min-width: $xl) { @content; }
+  }
   @if $point == l {
-    @media (max-width: $l) { @content; }
+    @media only screen and (min-width: $l) { @content; }
   }
   @else if $point == m {
-    @media (max-width: $m) { @content; }
+    @media only screen and (min-width: $m) { @content; }
   }
   @else if $point == s {
-    @media (max-width: $s)  { @content; }
+    @media only screen and (max-device-width: $s) { @content; }
+  }
+  @else if $point == port {
+    @media only screen and (min-device-width: $short) and (max-device-width: $long) and (orientation:portrait) { @content; }
+  }
+  @else if $point == land {
+   @media only screen and (min-device-width: $short) and (max-device-width: $long) and (orientation:landscape) { @content; }
   }
 }
 
@@ -87,7 +99,7 @@
  * Usage:
  *
  *      p {
- *          @include font-size(14px)
+ *          @include font-size(14px);
  *      }
  *
  * Output:
@@ -98,14 +110,24 @@
  *      }
  */
 
-/* @function calculateEm($size, $context: 16px) {
-    @return ($size / $context) * 1em;
-}
+// @function calculateEm($size, $context: 16px) {
+//     @return ($size / $context) * 1em;
+// }
 
+// @mixin font-size($size) {
+//     font-size: $size;
+//     font-size: calculateEm($size);
+// }
+
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
 @mixin font-size($size) {
-    font-size: $size;
-    font-size: calculateEm($size);
-} */
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
 
 /**
  * Font size
@@ -135,6 +157,7 @@
   font-size: $size;
   font-size: calculateRem($size);
 } */
+
 /**
  * Expand element outside its container
  * -----------------------------------------------------------------------------
@@ -144,7 +167,7 @@
  * Usage:
  *
  *      img {
- *          @include expand-full-width(16px)
+ *          @include expand-full-width(16px);
  *      }
  *
  */
@@ -219,7 +242,7 @@
  *
  */
 
-/* %clearfix,
+ %clearfix,
 .clearfix {
     *zoom: 1;
 
@@ -248,7 +271,7 @@
     display: table;
     clear: both;
   }
-} */
+}
 
 /**
  * NOT A TESTING MIXIN
@@ -418,19 +441,20 @@
 * -------------
 */
 
-/* @keyframes spin-around {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-} */
+// @keyframes spin-around {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(359deg);
+//   }
+// } 
 
 /* 
 * findColorInvert
 * ---------------
 */
+
 /*
 @function powerNumber($number, $exp) {
   $value: 1;
